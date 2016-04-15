@@ -32,10 +32,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
   gem 'byebug'
-  gem 'database_cleaner'
+  gem 'mocha'
 end
 
 group :development do
