@@ -3,7 +3,8 @@
 <% if @ideas %>
 <ul>
   <% @ideas.each do |idea| %>
-    <li><%= link_to idea.description, idea %></li>
+    <li><%= link_to idea.description, idea %> -
+    <%= link_to "Edit", edit_idea_path(idea) %></li>
   <% end %>
 </ul>
 <% end %>

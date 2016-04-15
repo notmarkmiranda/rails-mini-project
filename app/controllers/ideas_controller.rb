@@ -33,6 +33,8 @@ class IdeasController < ApplicationController
       flash[:notice] = "Idea Successfully Updated!"
       redirect_to @idea
     else
+      flash.now[:error] = @idea.errors.full_messages.join(", ")
+      render :edit
     end
   end
 
