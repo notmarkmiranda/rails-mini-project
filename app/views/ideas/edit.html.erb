@@ -1,0 +1,7 @@
+<h1>Edit An Idea!</h1>
+<%= form_for(@idea) do |f| %>
+  <p><%= f.label :description, "description" %><br />
+  <%= f.text_field :description %></p>
+
+  <p><%= f.submit "Submit Idea!", method: :patch %></p>
+<% end %>
