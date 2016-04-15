@@ -3,7 +3,6 @@ require 'test_helper'
 class IdeaCreationTest < ActionDispatch::IntegrationTest
   test "idea can be created" do
     visit ideas_path
-
     click_link "Create New Idea"
 
     fill_in "description", with: "Write tests before you write code!"
