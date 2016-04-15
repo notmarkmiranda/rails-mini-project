@@ -20,7 +20,7 @@ class IdeaEditingTest < ActionDispatch::IntegrationTest
 
     visit ideas_path
 
-    click_link("Edit", match: :first)
+    click_link("edit", match: :first)
     fill_in "description", with: "Write tests before you write code!"
     click_button "Submit Idea!"
 

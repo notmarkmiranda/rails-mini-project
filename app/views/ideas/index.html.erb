@@ -4,7 +4,8 @@
 <ul>
   <% @ideas.each do |idea| %>
     <li><%= link_to idea.description, idea %> -
-    <%= link_to "Edit", edit_idea_path(idea) %></li>
+    <%= link_to "edit", edit_idea_path(idea) %> -
+    <%= link_to "delete", idea_path(idea), method: :delete %></li>
   <% end %>
 </ul>
 <% end %>
