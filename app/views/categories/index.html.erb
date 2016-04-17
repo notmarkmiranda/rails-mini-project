@@ -1,0 +1,15 @@
+<h1>All Categories</h1>
+
+<% if @categories %>
+<ul>
+  <% @categories.each do |cat| %>
+    <li><%= cat.name %></li>
+    <ul>
+      <li><%= link_to "Edit #{cat.name} Category", edit_category_path(cat) %>
+      <li><%= link_to "Create #{cat.name} Idea", new_idea_path %></li>
+    </ul>
+  <% end %>
+</ul>
+<% else %>
+  <h2>No categories have been defined.</h2>
+<% end %>
