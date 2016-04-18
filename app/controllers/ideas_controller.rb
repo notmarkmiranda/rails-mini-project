@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-
+  before_action :current_user
 
   def new
     @category = Category.find(params[:category_id])
@@ -23,8 +23,8 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:category_id])
     @idea = Idea.find(params[:id])
+    @category = Category.find(@idea.category_id)
   end
 
   def update
@@ -40,8 +40,8 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    category = Category.find(params[:category_id])
     idea = Idea.find(params[:id])
+    category = Category.find(idea.category_id)
     idea.destroy
     flash[:notice] = "Idea Successfully Deleted!"
     redirect_to category_path(category)

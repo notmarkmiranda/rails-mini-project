@@ -2,6 +2,9 @@ require 'test_helper'
 
 class CategoryCreationTest < ActionDispatch::IntegrationTest
   test "category can be created with valid attributes" do
+    admin = User.create(name: "Mark", email: "markmiranda51@gmail.com", password: "password", role: 1)
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
+
     visit root_path
 
     click_link "Create New Category"
@@ -13,6 +16,9 @@ class CategoryCreationTest < ActionDispatch::IntegrationTest
   end
 
   test "category cannot be created with invalid attributes" do
+    admin = User.create(name: "Mark", email: "markmiranda51@gmail.com", password: "password", role: 1)
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
+
     visit root_path
 
     click_link "Create New Category"
