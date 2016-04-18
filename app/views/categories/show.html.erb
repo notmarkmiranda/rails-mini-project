@@ -1,1 +1,12 @@
 <%= @category.name %>
+
+<% if @category.ideas %>
+  <% @category.ideas.each do |idea| %>
+  <ul>
+    <li><%= link_to idea.description, category_idea_path(@category, idea) %></li>
+      <ul>
+        <li><%= link_to "edit idea", edit_category_idea_path(@category, idea) %></li>
+      </ul>
+  </ul>
+  <% end %>
+<% end %>
