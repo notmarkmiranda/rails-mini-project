@@ -4,10 +4,12 @@
   <% @category.ideas.each do |idea| %>
   <ul>
     <li><%= link_to idea.description, category_idea_path(@category, idea) %></li>
+      <% if current_user %>
       <ul>
-        <li><%= link_to "edit idea", edit_category_idea_path(@category, idea) %></li>
-        <li><%= link_to "delete idea", category_idea_path(@category, idea), method: :delete, data: {confirm: "Are you sure?!"} %></li>
+        <li><%= link_to "edit idea", edit_idea_path(idea) %></li>
+        <li><%= link_to "delete idea", idea_path(idea), method: :delete, data: {confirm: "Are you sure?!"} %></li>
       </ul>
+      <% end %>
   </ul>
   <% end %>
 <% end %>

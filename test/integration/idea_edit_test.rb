@@ -3,7 +3,11 @@ require 'test_helper'
 class IdeaEditTest < ActionDispatch::IntegrationTest
   test "created idea can be edited" do
     category = Category.create(name: "Programming")
+
     idea = category.ideas.create(description: "Write tests after you write code?")
+    user = User.create(name: "Mark", email: "Mark@am.com", password: "password", role: 0)
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
+
 
     visit category_path(category.id)
     first(:link, "edit idea").click
@@ -18,6 +22,8 @@ class IdeaEditTest < ActionDispatch::IntegrationTest
   test "created idea cannot be edited with invalid attributes" do
     category = Category.create(name: "Programming")
     idea = category.ideas.create(description: "Write tests after you write code?")
+    user = User.create(name: "Mark", email: "Mark@am.com", password: "password", role: 0)
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
 
     visit category_path(category.id)
     first(:link, "edit idea").click
