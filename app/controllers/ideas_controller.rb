@@ -39,6 +39,14 @@ class IdeasController < ApplicationController
     end
   end
 
+  def destroy
+    category = Category.find(params[:category_id])
+    idea = Idea.find(params[:id])
+    idea.destroy
+    flash[:notice] = "Idea Successfully Deleted!"
+    redirect_to category_path(category)
+  end
+
   private
 
     def idea_params
