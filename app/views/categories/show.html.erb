@@ -6,6 +6,7 @@
     <li><%= link_to idea.description, category_idea_path(@category, idea) %></li>
       <ul>
         <li><%= link_to "edit idea", edit_category_idea_path(@category, idea) %></li>
+        <li><%= link_to "delete idea", category_idea_path(@category, idea), method: :delete, data: {confirm: "Are you sure?!"} %></li>
       </ul>
   </ul>
   <% end %>
