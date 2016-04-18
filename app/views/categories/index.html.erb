@@ -5,8 +5,11 @@
   <% @categories.each do |cat| %>
     <li><%= cat.name %></li>
     <ul>
-      <li><%= link_to "Edit #{cat.name} Category", edit_category_path(cat) %>
-      <li><%= link_to "Create #{cat.name} Idea", new_idea_path %></li>
+      <li><%= link_to "Edit #{cat.name} Category", edit_category_path(cat) %></li>
+      <li><%= link_to "Delete #{cat.name} Category", category_path(cat), method: :delete, data: {confirm: "Are you sure?" } %></li>
+      <ul>
+        <li><%= link_to "Create #{cat.name} Idea", new_idea_path %></li>
+      </ul>
     </ul>
   <% end %>
 </ul>
