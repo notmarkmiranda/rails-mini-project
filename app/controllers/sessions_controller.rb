@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    # byebug
     flash[:notice] = "Successfully Logged Out!"
     redirect_to login_path
   end

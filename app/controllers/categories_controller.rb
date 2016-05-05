@@ -2,7 +2,6 @@
     before_action :require_admin, except: [:index, :show]
 
     def index
-      # byebug
       @categories = Category.all
     end
 
@@ -37,8 +36,6 @@
     end
 
     def show
-
-      # byebug
       @admin = current_user.admin?
       @category = Category.find(params[:id])
     end
